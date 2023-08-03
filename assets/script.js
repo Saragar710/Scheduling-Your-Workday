@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var currentDay = moment().format('MMMM Do YYYY,');
-moment().format('').currentDay(currentDay);
+// moment().format('').currentDay(currentDay);
 // var hourX = $(`#hourX`)
 var saveButtonEl = $(`#save-Btn`)
 
@@ -11,6 +11,15 @@ var saveButtonEl = $(`#save-Btn`)
 
 $(function() {
   var currentHour= moment().format();
+  function hourlyColor () {
+    $(`.time-block`).each(function() {
+      var blockHour = parseInt(this.id);
+      $(this).toggleClass('past', blockHour < currentHour);
+      $(this).toggleClass('present', blockHour < currentHour);
+      $(this).toggleClass('future', blockHour < currentHour);
+
+    });
+  }
 })
 // saveButtonEl.on("click", () => console.log('Save button was clicked'))
  
