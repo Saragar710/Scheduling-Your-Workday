@@ -1,8 +1,9 @@
   ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var current
-
+var currentDay = moment().format('MMMM Do YYYY,')
+var hourX = $(`#hourX`)
+var saveButtonEl = $(`#save-Btn`)
 // saveButtonEl.on("click", () => console.log('Save button was clicked'))
  
 
