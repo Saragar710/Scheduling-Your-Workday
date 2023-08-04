@@ -1,16 +1,19 @@
-  ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
+  // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var currentDay = moment().format('MMMM Do YYYY,');
+var currentDay = moment().format();
+moment().format().local(localSettngs);
+// moment.currentDay = moment('MMMM Do YYYY, h: mm: s a')
 // moment().format('').currentDay(currentDay);
-// var hourX = $(`#hourX`)
-var saveButtonEl = $(`#save-Btn`)
+var hourX = $(`#hourX`)
+var saveButtonEl = $(`.save-Btn`)
 
 
 
 
 $(function() {
-  var currentHour= moment().format();
+  var hourX= moment().format('h: mm: s a');
+
   function hourlyColor () {
     $(`.time-block`).each(function() {
       var blockHour = parseInt(this.id);
@@ -21,6 +24,18 @@ $(function() {
     });
   }
 })
+
+function textEntry() {
+  $('.saveBtn').on('click', function() {
+    var key =  $(this).parent().att($(hourX));
+    var value = $(this).siblings('.description').val();
+    localStorage.setItme(key, value);
+  })
+}
+
+
+
+
 // saveButtonEl.on("click", () => console.log('Save button was clicked'))
  
 
