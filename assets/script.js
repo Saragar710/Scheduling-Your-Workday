@@ -1,18 +1,19 @@
   // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var currentDay = moment().format();
-moment().format().local(localSettngs);
+var currentDay = $(`#currentDay`)
+var currentTime = $(`#currentTime`)
+// moment().format().local(localSettngs);
 // moment.currentDay = moment('MMMM Do YYYY, h: mm: s a')
 // moment().format('').currentDay(currentDay);
 var hourX = $(`#hourX`)
-var saveButtonEl = $(`.save-Btn`)
+var saveButtonEl = $(`#save-Btn`)
 
 
 
 
-$(function() {
-  var hourX= moment().format('h: mm: s a');
+// $(function() {
+//   var hourX= moment().format('h: mm: s a');
 
   function hourlyColor () {
     $(`.time-block`).each(function() {
@@ -25,15 +26,47 @@ $(function() {
   }
 })
 
-function textEntry() {
-  $('.saveBtn').on('click', function() {
-    var key =  $(this).parent().att($(hourX));
-    var value = $(this).siblings('.description').val();
-    localStorage.setItme(key, value);
-  })
+function getHeaderDate() {
+  var currentHeaderDate = moment().format('MMMM Do YYYY');
+  $("#currentDay").text(currentHeaderDate);
 }
 
+function saveReminders() {
+  localStorage.setItem("currentDay", JSON.stringify(currentDay));
+}
+function displayReminders() {
+  currentDay.forEach(function (thisHourX)); {
+    $('#${thisHourX.id}.val(thisHourX.reminder');
+  }}
 
+ function refreshColor() {
+  $('.time-block').each(function() {
+    var blockHour = parseInt(this.id)
+    if(blockHour == currentHour) {
+      $(this).removeClass('past future').addClass('present')
+    } else if (blockHour < currentHour){
+      $(this).removeClass('future present').addClass('past')
+    } else {
+      $(this).removeClass('past present').addClass('future')
+    }
+  })
+
+ }
+
+
+
+// function textEntry() {
+//   $('#saveBtn').on('click', function() {
+//     var key =  $(this).parent().att($(hourX));
+//     var value = $(this).siblings('.description').val();
+//     localStorage.setItme(key, value);
+//   })
+// }
+
+
+
+hourlyColor();
+textEntry();
 
 
 // saveButtonEl.on("click", () => console.log('Save button was clicked'))
