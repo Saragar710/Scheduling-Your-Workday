@@ -36,8 +36,35 @@ for(var i =0; i<timeBlocksArray.length; i++) {
 
   } else { // TODO future
 
-  }
-}
+    if(time = currentHour){
+      $(currentTimeBlock).addClass("present") }
+
+  // } else if(time == currentHour) {
+
+      if(time>currentHour){
+        $(currentTimeBlock).addClass("future")
+      }
+    }
+      
+    }
+
+   var userInput = ('')
+
+   localStorage.setItem(userInput, currentHour);
+   var userInput = localStorage.getItem(userInput);
+   localStorage.removeItem(userInput);
+   localStorage.clear()
+  
+
+
+  //  saveButtonEl.on("click", () => console.log('Save button was clicked'))
+
+   $(function () {
+     saveButtonEl.on("click", () => console.log('Save button was clicked'))
+
+   })
+ // }
+//}
 
 // var arr = [10,11,12]
 // for(var i=0; i<arr.length; i++) {
