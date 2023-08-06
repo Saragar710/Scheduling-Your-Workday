@@ -10,6 +10,7 @@ var hourX = $('#hourX')
 var saveButtonEl = $('#save-Btn')
 var dateTime = $('#date-time')
 dateTime.text(localeSetting)
+// var textareaEL = $(textarea)
 
 
 
@@ -47,7 +48,7 @@ for(var i =0; i<timeBlocksArray.length; i++) {
 
   } else { // TODO future
 
-    if(time = currentHour){
+    if(time == currentHour){
       $(currentTimeBlock).addClass("present") }
 
   // } else if(time == currentHour) {
@@ -58,11 +59,38 @@ for(var i =0; i<timeBlocksArray.length; i++) {
     }
       
     }
+    
 
-
-    function saveReminders() {
-      localStorage.setItem("currentHour", JSON.stringify(currentHour))
+    function saveInput() {
+      localStorage.setItem("dateTime", JSON.stringify(dateTime))
     }
+
+    function displayInput() {
+      dateTime.forEach(function (_thisHour){
+        $('#${thisHour.id}').val(thisHour.Input);
+      })
+    }
+    function init() {
+      var StoreInfo = JSON.parse(localStorage.getItem("thisHour.input"));
+      localStorage.removeItem(thisHour.input);
+      localStorage.clear()
+    }
+
+    // var textarea = document.getElementById("save-Btn");
+ 
+    // textarea.addEventListener('click', idHour)
+
+    // function idHour() {
+    //   if(idHour >= currentHour )
+    //   container.setAttribute("id", past)
+    // }
+
+    // document.getElementById("save-Btn").addEventListener("click", userInput);
+
+    // function userInput () {
+    //   document.getElementById("textarea").innerHTML = $('#thisIdTime')
+    // }
+
     
     // function displayReminders() {
     //   currentHour.forEach{function(_thisHour){
@@ -102,12 +130,12 @@ for(var i =0; i<timeBlocksArray.length; i++) {
   //  localStorage.removeItem(userInput);
   //  localStorage.clear()
   
-$("#save-Btn").on("click", function(event) {
-  // alert( $(this).addClass(textarea))
-  console.log(" you clicked me")
+// saveButtonEl.on("click", function(event) {
+//   // alert( $(this).addClass(textarea))
+//   console.log(" you clicked me")
 
-  saveButtonEl();
-});
+//   saveButtonEl();
+// });
 
   //  saveButtonEl.on("click", () => console.log('Save button was clicked'))
 
