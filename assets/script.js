@@ -11,10 +11,7 @@ var saveButtonEl = $('#save-Btn')
 var dateTime = $('#date-time')
 dateTime.text(localeSetting)
 
-// function getHeaderDate() {
-//   var currentHeaderDate = moment().format('MMMM Do YYYY');
-//   $("#currentDate", + "#currentTime").text(currentHeaderDate);
-// }
+
 
 var currentHour = moment().format('H')
 console.log(currentHour)
@@ -33,6 +30,20 @@ for(var i =0; i<timeBlocksArray.length; i++) {
   if(time<currentHour) {
     $(currentTimeBlock).addClass("past")
   } else if(time == currentHour) { // TODO present
+  
+
+
+
+// var idTime = $(currentTimeBlockArray).attr("id")
+// console.log(id.Time)
+// var time = idTime.split("-")[2]
+// console.log(time)
+// if(time = currentHour){
+//   $(currentTimeBlock).addClass("present")
+
+//   } else if (time == currentHour){
+
+//   }
 
   } else { // TODO future
 
@@ -41,28 +52,76 @@ for(var i =0; i<timeBlocksArray.length; i++) {
 
   // } else if(time == currentHour) {
 
-      if(time>currentHour){
+      if(time >= currentHour){
         $(currentTimeBlock).addClass("future")
       }
     }
       
     }
 
-   var userInput = ('')
 
-   localStorage.setItem(userInput, currentHour);
-   var userInput = localStorage.getItem(userInput);
-   localStorage.removeItem(userInput);
-   localStorage.clear()
+    function saveReminders() {
+      localStorage.setItem("currentHour", JSON.stringify(currentHour))
+    }
+    
+    // function displayReminders() {
+    //   currentHour.forEach{function(_thisHour){
+    //     $('#${_thisHour.id}').value(_thisHour.reminder);
+    //   }
+    //   }
+    // }
+  // function saveReminders() {
+  //   var userInput = document.getElementById("textarea").value;
+  //   localStorage.setItem("userInput", textarea);
+  // }
+  // function displayReminders() {
+  //   var userInput = localStorage.getItem("userInput");
+  //   document.getElementById("textarea").value = userInput;
+  // }
+
+  //  var todos = ["."];
+
+  //  localStorage.setItem("todos", JSON.stringify(todos));
+
+  //  var todos = JSON.parse(localStorage.getItem("todos"));
+  //  localStorage.removeItem('todos');
+  //  localStorage.clear()
+
+
+    
+    // localStorage.userInput = ('.')
+    // localStorage['userInput'] = ('.')
+    // localStorage.setItem =('userInput', '.')
+    // localStorage.removeItem('userInput')
+    // localStorage.clear()
+
+  //  var userInput = ('')
+
+  //  localStorage.setItem(userInput, currentHour);
+  //  var userInput = localStorage.getItem(userInput);
+  //  localStorage.removeItem(userInput);
+  //  localStorage.clear()
   
+$("#save-Btn").on("click", function(event) {
+  // alert( $(this).addClass(textarea))
+  console.log(" you clicked me")
 
+  saveButtonEl();
+});
 
   //  saveButtonEl.on("click", () => console.log('Save button was clicked'))
 
-   $(function () {
-     saveButtonEl.on("click", () => console.log('Save button was clicked'))
+  //  $(function () {
+  //    saveButtonEl.on("click", () => console.log('Save button was clicked'))
 
-   })
+  //  })
+  //  saveButtonEl.on("click", (todos))
+  //  var data = '.'
+
+  //  function data() {
+  //   console.log('Info has been stored!')
+  //  }
+  
  // }
 //}
 
