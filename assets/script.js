@@ -10,7 +10,7 @@ var hourX = $('#hourX')
 var saveButtonEl = $('#save-Btn')
 var dateTime = $('#date-time')
 dateTime.text(localeSetting)
-// var textareaEL = $(textarea)
+var textareaEL = $('#time-block')
 
 
 
@@ -59,22 +59,25 @@ for(var i =0; i<timeBlocksArray.length; i++) {
     }
       
     }
-    
+     
+    // function saveInput() {
+    //   var textareaEL = $(textarea)
+    //   input.forEach(input => {
+    //     console.log('input: ${input}')
+    //   })
+    //   localStorage.setItem("dateTime", JSON.stringify(dateTime))
+    // }
 
-    function saveInput() {
-      localStorage.setItem("dateTime", JSON.stringify(dateTime))
-    }
-
-    function displayInput() {
-      dateTime.forEach(function (_thisHour){
-        $('#${thisHour.id}').val(thisHour.Input);
-      })
-    }
-    function init() {
-      var StoreInfo = JSON.parse(localStorage.getItem("thisHour.input"));
-      localStorage.removeItem(thisHour.input);
-      localStorage.clear()
-    }
+    // function displayInput() {
+    //   dateTime.forEach(function (_thisHour){
+    //     $('#${thisHour.id}').val(thisHour.Input);
+    //   })
+    // }
+    // function init() {
+    //   var StoreInfo = JSON.parse(localStorage.getItem("thisHour.input"));
+    //   localStorage.removeItem(thisHour.input);
+    //   localStorage.clear()
+    // }
 
     // var textarea = document.getElementById("save-Btn");
  
@@ -98,14 +101,14 @@ for(var i =0; i<timeBlocksArray.length; i++) {
     //   }
     //   }
     // }
-  // function saveReminders() {
-  //   var userInput = document.getElementById("textarea").value;
-  //   localStorage.setItem("userInput", textarea);
-  // }
-  // function displayReminders() {
-  //   var userInput = localStorage.getItem("userInput");
-  //   document.getElementById("textarea").value = userInput;
-  // }
+  function saveReminders() {
+    var userInput = document.getElementById("textarea").value;
+    localStorage.setItem("userInput", currentTimeBlock);
+  }
+  function displayReminders() {
+    var userInput = localStorage.getItem("userInput");
+    document.getElementById("currentTimeBlock").addClass("textareaEl").value
+  }
 
   //  var todos = ["."];
 
