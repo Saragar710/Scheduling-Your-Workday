@@ -10,7 +10,7 @@ var hourX = $('#hourX')
 var saveButtonEl = $('#save-Btn')
 var dateTime = $('#date-time')
 dateTime.text(localeSetting)
-var textareaEL = $('#time-block')
+var textareaEl = $('#time-block')
 
 
 
@@ -102,13 +102,16 @@ for(var i =0; i<timeBlocksArray.length; i++) {
     //   }
     // }
   function saveReminders() {
-    var userInput = document.getElementById("textarea").value;
+    // var userInput = document.getElementById("textarea").value;
     localStorage.setItem("userInput", currentTimeBlock);
   }
   function displayReminders() {
     var userInput = localStorage.getItem("userInput");
-    document.getElementById("currentTimeBlock").addClass("textareaEl").value
+    document.getElementById("currentTimeBlock")
+
   }
+  saveReminders();
+  displayReminders();
 
   //  var todos = ["."];
 
@@ -132,13 +135,23 @@ for(var i =0; i<timeBlocksArray.length; i++) {
   //  var userInput = localStorage.getItem(userInput);
   //  localStorage.removeItem(userInput);
   //  localStorage.clear()
-  
+//   function saveButtonEl() {
 // saveButtonEl.on("click", function(event) {
 //   // alert( $(this).addClass(textarea))
 //   console.log(" you clicked me")
-
-//   saveButtonEl();
 // });
+//   }
+//   saveButtonEl();
+
+$('#save-Btn').on('click', function(e) {
+  console.log("I was clicked")
+  e.preventDefault();
+  textareaEl = e.target();
+  
+});
+
+
+
 
   //  saveButtonEl.on("click", () => console.log('Save button was clicked'))
 
