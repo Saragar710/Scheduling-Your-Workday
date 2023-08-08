@@ -13,10 +13,11 @@ dateTime.text(localeSetting)
 var textareaEl = $('.textarea')
 
 
-
+//set currentHour using moment
 var currentHour = moment().format('H')
 console.log(currentHour)
 
+//defined variable and started code to set array for which hour 
 var timeBlocks = $('.time-block')
 console.log(timeBlocks)
 var timeBlocksArray = timeBlocks.toArray()
@@ -101,21 +102,26 @@ for(var i =0; i<timeBlocksArray.length; i++) {
     //   }
     //   }
     // }
+
+    //I tried multiple times to figure our local storage to no avail
   function saveReminders() {
     // var userInput = document.getElementById("textarea").value;
-    localStorage.setItem("userInput", this.currentTimeBlock.id);
+    localStorage.setItem("saveReminders", this.curretnTimeBlock);
     console.log(this.currentTimeBlock.id)
-    
+    var saveReminders = localStorage.getItem("this.currentTimeBlock");
+    localStorage.removeItem("this.currentTimeBlock");
+    localStorage.clear()
 
     
   }
-  function displayReminders() {
-    var userInput = localStorage.getItem("userInput");
-    document.getElementById("this.currentTimeBlock.id")
+  // function displayReminders() {
+  //   var userInput = localStorage.getItem("displayReminders");
+  //   document.getElementById("this.currentTimeBlock.id")
+  //   localStorage.removeItem("this.currentTi")
 
-  }
+  // }
   saveReminders();
-  displayReminders();
+  // displayReminders();
 
   //  var todos = ["."];
 
@@ -146,14 +152,23 @@ for(var i =0; i<timeBlocksArray.length; i++) {
 // });
 //   }
 //   saveButtonEl();
+//finally go the save button to work only once
+saveButtonEl.onclick = function(e){textareaEl};{
+console.log("I was clicked") 
 
-saveButtonEl.addEventListener('click', (e) => {
-  saveButtonEl.textareaEl ='click: ${event.this.textarea}';
-  // textareaEl = e.target(setLocalStorage)
-  // e.preventDefault();
-  // textareaEl = e.target();
+}
+
+
+// saveButtonEl.onclick('click', function(e){
+//   saveButtonEl ="I was clicked"
+//   console.log("I was clicked")
+//   // saveButtonEl.textareaEl ='click: ${event.this.textarea}';
   
-});
+//   // textareaEl = e.target(setLocalStorage)
+//   // e.preventDefault();
+//   // textareaEl = e.target();
+  
+// });
 
 // saveButtonEl.addEventListener("click", textareaEl)
 
